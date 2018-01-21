@@ -7,7 +7,7 @@ context('reducer', () => {
     expect(reducer(undefined, {})).to.deep.equal([])
   })
 
-  context(`THUMB_UP`, () => {
+  context(`THUMB_UP_COMMENT`, () => {
     const id = 'bd4587e3-4f69-4b20-8bfd-b0b15dfc449c'
     let state
 
@@ -20,7 +20,7 @@ context('reducer', () => {
 
     it('updates `votes` with value `+1`', () => {
       const newState = reducer(state, {
-        type: 'THUMB_UP',
+        type: 'THUMB_UP_COMMENT',
         id
       })
       expect(newState.find(note => note.id === id)).to.have.property('votes').to.equal(1)
