@@ -1,7 +1,7 @@
 const actions = require("./actions");
 const redux = require('redux');
 
-const reducer = (state = [], action) => {
+const comments = (state = [], action) => {
   switch (action.type) {
     case actions.ADD_COMMENT:
       return [{
@@ -15,7 +15,7 @@ const reducer = (state = [], action) => {
       return state.comments.filter(comment => comment.id !== action.id);
 
     case actions.EDIT_COMMENT:
-      return state.map( comment => {
+      return state.map(comment => {
         if (comment.id === action.id) {
           comment.text = action.text;
         } 
@@ -27,7 +27,7 @@ const reducer = (state = [], action) => {
           if (comment.id === action.id) {
               return { ...comment, votes: comment.votes + 1 }
           }
-          return current
+          return comment
       });
       
 
@@ -47,5 +47,5 @@ const reducer = (state = [], action) => {
 }
 
 module.exports = {
-    reducer,
+  comments
 }
